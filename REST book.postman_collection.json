@@ -1,0 +1,544 @@
+{
+	"info": {
+		"_postman_id": "dacde644-6cb9-45af-9990-19385075682f",
+		"name": "REST book",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "simple post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/index",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"index"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api create user John",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"username\": \"John\",\n\"firstName\": \"test\",\n\"lastName\": \"test\",\n\"email\": \"test\",\n\"password\": \"password\",\n\"phone\": \"2343432\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:3000/users",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api create user Mary",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"username\": \"jose\",\n\"firstName\": \"test\",\n\"lastName\": \"test\",\n\"email\": \"test\",\n\"password\": \"test\",\n\"phone\": \"2343432\" \n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "App Engine: api create user Mary",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{prod-bearer-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"username\": \"mary4\",\n\"firstName\": \"Mary\",\n\"lastName\": \"Test\",\n\"email\": \"mary4@unartig.ch\",\n\"password\": \"password\",\n\"phone\": \"2343432\" \n}"
+				},
+				"url": {
+					"raw": "https://order-api-258620.appspot.com/users",
+					"protocol": "https",
+					"host": [
+						"order-api-258620",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api create order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"userId\": \"5da40d844ea79c4d500acd92\",\n\"quantity\": 10,\n\"shipDate\": \"2017-12-15T01:52:19.458Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/store/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"store",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "App Engine: api create order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{prod-bearer-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"userId\": \"{{order-user-id}}\",\n\"quantity\": 10,\n\"shipDate\": \"2017-12-15T01:52:19.458Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://order-api-258620.appspot.com/store/orders",
+					"protocol": "https",
+					"host": [
+						"order-api-258620",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"store",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api users \"John\"",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:3000/users/Mary",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"Mary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login for user \"John\"",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/xml"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:3000/users/login?username=John&password=password",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "John"
+						},
+						{
+							"key": "password",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "App Engine: login for user \"John",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c29ba947-57a8-4e97-95ed-bac0f62c1efb",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"pm.collectionVariables.set(\"prod-bearer-token\",data.token)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/xml"
+					}
+				],
+				"url": {
+					"raw": "https://order-api-258620.appspot.com/users/login?username=John&password=password",
+					"protocol": "https",
+					"host": [
+						"order-api-258620",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"users",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "John"
+						},
+						{
+							"key": "password",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVkZDE0ZDczZDYxNDA4ODU5NmFjYjdmNCIsImVtYWlsIjoidGVzdCJ9LCJpYXQiOjE1NzQ0NTI2MDJ9.yROFSDnaK1Kp4M_Rs3_zu48YgQQwaS8EMRbkbfPxkR0",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/users/John",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"John"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "App Engine: api users/John",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d00e140a-a535-48d2-b9bf-9acb67eecff7",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"pm.collectionVariables.set(\"order-user-id\",data._id)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{prod-bearer-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVkZDZkYzlkODAwZWM4YTE3OThiZDJmNSIsImVtYWlsIjoidW5pcXVlX2VtYWlsQGVtYWlsLmNvbSJ9LCJpYXQiOjE1NzQ1MDQ1NDV9.3aYPD2uWwQ_dpOlMT07i4uPMJkIuM5gzMSVqjfTRjY8",
+						"description": "set token here after login",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://order-api-258620.appspot.com/users/John",
+					"protocol": "https",
+					"host": [
+						"order-api-258620",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"users",
+						"John"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api inventory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/store/inventory?status=PLACED",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"store",
+						"inventory"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "PLACED"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api get order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/store/orders/28",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"store",
+						"orders",
+						"28"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api get all orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/store/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"store",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api delete orders",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/store/orders/96",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"store",
+						"orders",
+						"96"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{prod-bearer-token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d4704543-f32e-4877-9f43-681a73e96ba5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ac14505f-ecf7-4418-bb34-b10749650c9f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "3ce9fac1-51b9-4ccc-b0d0-d371fa41bc7e",
+			"key": "prod-bearer-token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "bc139ddd-ad8a-40ff-b3be-bbb1862c98cd",
+			"key": "order-user-id",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
