@@ -23,7 +23,7 @@ describe('baseRoute', () => {
       .request(app)
       .get('/api')
       .then(res => {
-        expect(res.body.title).to.be.equal('Order API')
+        expect(res.body.title).to.be.equal('Order Microservice')
       })
   })
 })
