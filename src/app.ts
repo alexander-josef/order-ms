@@ -6,13 +6,11 @@ import * as mongoose from 'mongoose'
 import * as winston from 'winston'
 import { APIRoute } from './routes/api'
 import { OrderRoute } from './routes/order'
-import { UserRoute } from './routes/user'
 import * as errorHandler from './utility/errorHandler'
 import { OrderAPILogger } from './utility/logger'
 
 class App {
   public app: express.Application
-  public userRoutes: UserRoute = new UserRoute()
   public apiRoutes: APIRoute = new APIRoute()
   public orderRoutes: OrderRoute = new OrderRoute()
   public mongoUrl: string
@@ -36,7 +34,6 @@ class App {
 
     this.app = express() 
     this.app.use(bodyParser.json())
-    this.userRoutes.routes(this.app)
     this.apiRoutes.routes(this.app)
     this.orderRoutes.routes(this.app)
     this.mongoSetup()
